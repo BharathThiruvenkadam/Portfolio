@@ -2152,6 +2152,14 @@ textarea {
 
 @media (max-width: 800px) {
 
+    .resume-nav-btn {
+
+    width: 100%;
+
+    justify-content: center;
+
+}
+
 
     .menu-toggle {
 
@@ -2361,5 +2369,37 @@ textarea {
         padding: 25px 20px;
 
     }
+
+}
+.resume-nav-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+}
+
+
+.resume-nav-btn:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
 
 }
