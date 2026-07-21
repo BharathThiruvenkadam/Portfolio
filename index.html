@@ -1360,128 +1360,78 @@
 
                     <!-- CONTACT FORM -->
 
-                    <form
-                        class="contact-form"
-                        id="contactForm"
-                        action="https://formsubmit.co/bharathdavid92@email.com"
-                        method="POST"
-                        data-aos="fade-left"
-                    >
+                  <form
+    id="contactForm"
+    action="https://formsubmit.co/bharathdavid92@gmail.com"
+    method="POST"
+>
 
-                        <input
-                            type="hidden"
-                            name="_subject"
-                            value="New Portfolio Contact Message"
-                        >
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+    >
 
-                        <input
-                            type="hidden"
-                            name="_template"
-                            value="table"
-                        >
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+    >
 
-                        <input
-                            type="hidden"
-                            name="_captcha"
-                            value="false"
-                        >
+    <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        required
+    >
 
-                        <input
-                            type="hidden"
-                            name="_next"
-                            value="https://bharaththiruvenkadam.github.io/Portfolio/"
-                        >
-
-
-                        <div class="form-group">
-
-                            <label for="name">
-                                Your Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Enter your name"
-                                required
-                            >
-
-                        </div>
+    <textarea
+        name="message"
+        placeholder="Your Message"
+        required
+    ></textarea>
 
 
-                        <div class="form-group">
+    <input
+        type="hidden"
+        name="_subject"
+        value="New Portfolio Contact Message"
+    >
 
-                            <label for="email">
-                                Your Email
-                            </label>
+    <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+    >
 
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Enter your email"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="subject">
-                                Subject
-                            </label>
-
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder="Enter subject"
-                                required
-                            >
-
-                        </div>
+    <input
+        type="hidden"
+        name="_template"
+        value="table"
+    >
 
 
-                        <div class="form-group">
+    <button
+        type="submit"
+    >
 
-                            <label for="message">
-                                Message
-                            </label>
+        Send Message
 
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Write your message"
-                                required
-                            ></textarea>
+        <i
+            class="fa-solid fa-paper-plane"
+        ></i>
 
-                        </div>
+    </button>
 
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary form-button"
-                        >
+    <p
+        id="formStatus"
+        class="form-status"
+    ></p>
 
-                            <span class="button-text">
-                                Send Message
-                            </span>
-
-                            <i class="fa-solid fa-paper-plane"></i>
-
-                        </button>
-
-
-                        <p
-                            class="form-status"
-                            id="formStatus"
-                        ></p>
-
-                    </form>
-
+</form>
                 </div>
 
             </div>
