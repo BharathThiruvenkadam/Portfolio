@@ -1,5 +1,10 @@
 /* ==========================================
-PRELOADER
+   PORTFOLIO MAIN JAVASCRIPT
+========================================== */
+
+
+/* ==========================================
+   PRELOADER
 ========================================== */
 
 window.addEventListener("load", () => {
@@ -19,7 +24,7 @@ window.addEventListener("load", () => {
 
 
 /* ==========================================
-AOS ANIMATION
+   AOS ANIMATION
 ========================================== */
 
 if (typeof AOS !== "undefined") {
@@ -38,7 +43,7 @@ if (typeof AOS !== "undefined") {
 
 
 /* ==========================================
-MOBILE MENU
+   MOBILE MENU
 ========================================== */
 
 const menuToggle =
@@ -51,75 +56,82 @@ const navLinks =
     document.querySelectorAll(".nav-link");
 
 
+function closeMobileMenu() {
+
+    if (!navbar || !menuToggle) return;
+
+    navbar.classList.remove("open");
+
+    const icon =
+        menuToggle.querySelector("i");
+
+    if (icon) {
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open menu"
+    );
+
+}
+
+
 if (menuToggle && navbar) {
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-        navbar.classList.toggle("open");
+            const isOpen =
+                navbar.classList.toggle("open");
 
-        const icon =
-            menuToggle.querySelector("i");
+            const icon =
+                menuToggle.querySelector("i");
 
-        if (navbar.classList.contains("open")) {
+            if (icon) {
 
-            icon.classList.remove("fa-bars");
+                icon.classList.toggle(
+                    "fa-bars",
+                    !isOpen
+                );
 
-            icon.classList.add("fa-xmark");
+                icon.classList.toggle(
+                    "fa-xmark",
+                    isOpen
+                );
+
+            }
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Close menu"
-            );
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open menu"
+                isOpen
+                    ? "Close menu"
+                    : "Open menu"
             );
 
         }
-
-    });
+    );
 
 }
 
 
 navLinks.forEach((link) => {
 
-    link.addEventListener("click", () => {
-
-        if (!navbar || !menuToggle) return;
-
-        navbar.classList.remove("open");
-
-        const icon =
-            menuToggle.querySelector("i");
-
-        if (icon) {
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-        }
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open menu"
-        );
-
-    });
+    link.addEventListener(
+        "click",
+        closeMobileMenu
+    );
 
 });
 
 
 /* ==========================================
-DARK / LIGHT MODE
+   DARK / LIGHT MODE
 ========================================== */
 
 const themeToggle =
@@ -147,7 +159,6 @@ function updateThemeIcon() {
         document.documentElement.getAttribute(
             "data-theme"
         );
-
 
     if (currentTheme === "dark") {
 
@@ -179,49 +190,54 @@ updateThemeIcon();
 
 if (themeToggle) {
 
-    themeToggle.addEventListener("click", () => {
+    themeToggle.addEventListener(
+        "click",
+        () => {
 
-        const currentTheme =
-            document.documentElement.getAttribute(
-                "data-theme"
-            );
+            const currentTheme =
+                document.documentElement.getAttribute(
+                    "data-theme"
+                );
 
 
-        if (currentTheme === "dark") {
+            if (currentTheme === "dark") {
 
-            document.documentElement.removeAttribute(
-                "data-theme"
-            );
+                document.documentElement
+                    .removeAttribute(
+                        "data-theme"
+                    );
 
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
 
-        } else {
+            } else {
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                "dark"
-            );
+                document.documentElement
+                    .setAttribute(
+                        "data-theme",
+                        "dark"
+                    );
 
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            }
+
+
+            updateThemeIcon();
 
         }
-
-
-        updateThemeIcon();
-
-    });
+    );
 
 }
 
 
 /* ==========================================
-TYPING ANIMATION
+   TYPING ANIMATION
 ========================================== */
 
 const typingText =
@@ -280,12 +296,9 @@ function typeEffect() {
 
 
     if (
-
         !isDeleting &&
-
         characterIndex ===
         currentWord.length
-
     ) {
 
         speed = 1800;
@@ -296,11 +309,8 @@ function typeEffect() {
 
 
     if (
-
         isDeleting &&
-
         characterIndex === 0
-
     ) {
 
         isDeleting = false;
@@ -322,11 +332,15 @@ function typeEffect() {
 }
 
 
-typeEffect();
+if (typingText) {
+
+    typeEffect();
+
+}
 
 
 /* ==========================================
-HEADER SCROLL EFFECT
+   HEADER SCROLL EFFECT
 ========================================== */
 
 const header =
@@ -353,7 +367,10 @@ function updateHeader() {
 
 window.addEventListener(
     "scroll",
-    updateHeader
+    updateHeader,
+    {
+        passive: true
+    }
 );
 
 
@@ -361,11 +378,13 @@ updateHeader();
 
 
 /* ==========================================
-ACTIVE NAVIGATION
+   ACTIVE NAVIGATION
 ========================================== */
 
 const sections =
-    document.querySelectorAll("section");
+    document.querySelectorAll(
+        "main section[id]"
+    );
 
 
 function updateActiveNavigation() {
@@ -373,60 +392,71 @@ function updateActiveNavigation() {
     let currentSection = "";
 
 
-    sections.forEach((section) => {
+    sections.forEach(
+        (section) => {
 
-        const sectionTop =
-            section.offsetTop - 180;
-
-
-        const sectionHeight =
-            section.offsetHeight;
+            const sectionTop =
+                section.offsetTop - 200;
 
 
-        if (
-
-            window.scrollY >= sectionTop &&
-
-            window.scrollY <
-            sectionTop + sectionHeight
-
-        ) {
-
-            currentSection =
-                section.getAttribute("id");
-
-        }
-
-    });
+            const sectionBottom =
+                sectionTop +
+                section.offsetHeight;
 
 
-    navLinks.forEach((link) => {
+            if (
+                window.scrollY >=
+                sectionTop &&
+                window.scrollY <
+                sectionBottom
+            ) {
 
-        link.classList.remove("active");
+                currentSection =
+                    section.id;
 
-
-        if (
-
-            link.getAttribute("href") ===
-            `#${currentSection}`
-
-        ) {
-
-            link.classList.add("active");
+            }
 
         }
+    );
 
-    });
+
+    navLinks.forEach(
+        (link) => {
+
+            link.classList.remove(
+                "active"
+            );
+
+
+            const linkTarget =
+                link.getAttribute(
+                    "href"
+                );
+
+
+            if (
+                linkTarget ===
+                `#${currentSection}`
+            ) {
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+    );
 
 }
 
 
 window.addEventListener(
-
     "scroll",
-
-    updateActiveNavigation
-
+    updateActiveNavigation,
+    {
+        passive: true
+    }
 );
 
 
@@ -434,11 +464,13 @@ updateActiveNavigation();
 
 
 /* ==========================================
-BACK TO TOP
+   BACK TO TOP
 ========================================== */
 
 const backToTop =
-    document.getElementById("backToTop");
+    document.getElementById(
+        "backToTop"
+    );
 
 
 function updateBackToTop() {
@@ -448,11 +480,15 @@ function updateBackToTop() {
 
     if (window.scrollY > 500) {
 
-        backToTop.classList.add("show");
+        backToTop.classList.add(
+            "show"
+        );
 
     } else {
 
-        backToTop.classList.remove("show");
+        backToTop.classList.remove(
+            "show"
+        );
 
     }
 
@@ -460,11 +496,11 @@ function updateBackToTop() {
 
 
 window.addEventListener(
-
     "scroll",
-
-    updateBackToTop
-
+    updateBackToTop,
+    {
+        passive: true
+    }
 );
 
 
@@ -474,9 +510,7 @@ updateBackToTop();
 if (backToTop) {
 
     backToTop.addEventListener(
-
         "click",
-
         () => {
 
             window.scrollTo({
@@ -488,36 +522,37 @@ if (backToTop) {
             });
 
         }
-
     );
 
 }
 
 
 /* ==========================================
-CONTACT FORM
-FORM SUBMIT
+   CONTACT FORM
 ========================================== */
 
 const contactForm =
-    document.getElementById("contactForm");
+    document.getElementById(
+        "contactForm"
+    );
 
 
 const formStatus =
-    document.getElementById("formStatus");
+    document.getElementById(
+        "formStatus"
+    );
 
 
 if (contactForm) {
 
-
     contactForm.addEventListener(
-
         "submit",
+        () => {
 
-        async (event) => {
-
-
-            event.preventDefault();
+            const submitButton =
+                contactForm.querySelector(
+                    "button[type='submit']"
+                );
 
 
             if (formStatus) {
@@ -531,12 +566,6 @@ if (contactForm) {
             }
 
 
-            const submitButton =
-                contactForm.querySelector(
-                    "button[type='submit']"
-                );
-
-
             if (submitButton) {
 
                 submitButton.disabled =
@@ -544,286 +573,130 @@ if (contactForm) {
 
 
                 submitButton.innerHTML =
-
-                    'Sending... ' +
-
-                    '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-            }
-
-
-            try {
-
-
-                const formData =
-                    new FormData(contactForm);
-
-
-                const response =
-                    await fetch(
-
-                        contactForm.action,
-
-                        {
-
-                            method: "POST",
-
-                            body: formData,
-
-                            headers: {
-
-                                "Accept":
-                                    "application/json"
-
-                            }
-
-                        }
-
-                    );
-
-
-                if (response.ok) {
-
-
-                    if (formStatus) {
-
-                        formStatus.textContent =
-                            "Message sent successfully!";
-
-                        formStatus.className =
-                            "form-status success";
-
-                    }
-
-
-                    contactForm.reset();
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-
-                        submitButton.innerHTML =
-
-                            'Send Message ' +
-
-                            '<i class="fa-solid fa-paper-plane"></i>';
-
-                    }
-
-
-                } else {
-
-
-                    const data =
-                        await response.json();
-
-
-                    if (formStatus) {
-
-
-                        if (
-
-                            data.errors &&
-
-                            data.errors.length > 0
-
-                        ) {
-
-
-                            formStatus.textContent =
-
-                                data.errors
-
-                                    .map(
-
-                                        error =>
-
-                                            error.message
-
-                                    )
-
-                                    .join(", ");
-
-
-                        } else {
-
-
-                            formStatus.textContent =
-
-                                "Unable to send message.";
-
-                        }
-
-
-                        formStatus.className =
-                            "form-status error";
-
-                    }
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-
-                        submitButton.innerHTML =
-
-                            'Send Message ' +
-
-                            '<i class="fa-solid fa-paper-plane"></i>';
-
-                    }
-
-                }
-
-
-            } catch (error) {
-
-
-                console.error(
-
-                    "Formspree Error:",
-
-                    error
-
-                );
-
-
-                if (formStatus) {
-
-                    formStatus.textContent =
-
-                        "Network error. Please try again.";
-
-                    formStatus.className =
-
-                        "form-status error";
-
-                }
-
-
-                if (submitButton) {
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.innerHTML =
-
-                        'Send Message ' +
-
-                        '<i class="fa-solid fa-paper-plane"></i>';
-
-                }
+                    `
+                    Sending...
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    `;
 
             }
 
         }
-
     );
 
 }
 
+
 /* ==========================================
-IMAGE FALLBACK
+   IMAGE FALLBACK
 ========================================== */
 
 document
     .querySelectorAll("img")
-    .forEach((image) => {
+    .forEach(
+        (image) => {
+
+            image.addEventListener(
+                "error",
+                () => {
+
+                    image.style.display =
+                        "none";
 
 
-        image.addEventListener(
+                    if (
+                        image.parentElement
+                    ) {
 
-            "error",
+                        image.parentElement
+                            .classList.add(
+                                "image-fallback"
+                            );
 
-            () => {
-
-                image.style.display =
-                    "none";
-
-
-                if (image.parentElement) {
-
-                    image.parentElement.classList.add(
-                        "image-fallback"
-                    );
+                    }
 
                 }
+            );
 
-            }
-
-        );
-
-    });
+        }
+    );
 
 
 /* ==========================================
-SMOOTH SCROLL
+   SMOOTH SCROLL
 ========================================== */
 
 document
     .querySelectorAll(
         'a[href^="#"]'
     )
-    .forEach((anchor) => {
+    .forEach(
+        (anchor) => {
+
+            anchor.addEventListener(
+                "click",
+                function (event) {
+
+                    const targetId =
+                        this.getAttribute(
+                            "href"
+                        );
 
 
-        anchor.addEventListener(
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
 
-            "click",
+                        return;
 
-            function (event) {
-
-
-                const targetId =
-                    this.getAttribute(
-                        "href"
-                    );
+                    }
 
 
-                if (
-
-                    targetId === "#" ||
-
-                    targetId === ""
-
-                ) {
-
-                    return;
-
-                }
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
 
 
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
+                    if (target) {
+
+                        event.preventDefault();
 
 
-                if (target) {
+                        target.scrollIntoView({
 
-                    event.preventDefault();
+                            behavior:
+                                "smooth",
 
+                            block:
+                                "start"
 
-                    target.scrollIntoView({
+                        });
 
-                        behavior:
-                            "smooth",
-
-                        block:
-                            "start"
-
-                    });
+                    }
 
                 }
+            );
 
-            }
+        }
+    );
 
-        );
 
-    });
+/* ==========================================
+   RESIZE HANDLING
+========================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            window.innerWidth > 800
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
