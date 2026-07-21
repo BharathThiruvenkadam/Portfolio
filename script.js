@@ -1,5 +1,10 @@
 /* ==========================================
-PRELOADER
+   PORTFOLIO SCRIPT
+========================================== */
+
+
+/* ==========================================
+   PRELOADER
 ========================================== */
 
 window.addEventListener("load", () => {
@@ -19,26 +24,32 @@ window.addEventListener("load", () => {
 
 
 /* ==========================================
-AOS ANIMATION
+   AOS ANIMATION
 ========================================== */
 
-if (typeof AOS !== "undefined") {
+document.addEventListener("DOMContentLoaded", () => {
 
-    AOS.init({
+    if (typeof AOS !== "undefined") {
 
-        duration: 900,
+        AOS.init({
 
-        once: true,
+            duration: 900,
 
-        offset: 80
+            once: true,
 
-    });
+            offset: 80,
 
-}
+            easing: "ease-out-cubic"
+
+        });
+
+    }
+
+});
 
 
 /* ==========================================
-MOBILE MENU
+   MOBILE MENU
 ========================================== */
 
 const menuToggle =
@@ -51,36 +62,73 @@ const navLinks =
     document.querySelectorAll(".nav-link");
 
 
+function closeMobileMenu() {
+
+    if (!navbar || !menuToggle) return;
+
+    navbar.classList.remove("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open menu"
+    );
+
+    const icon =
+        menuToggle.querySelector("i");
+
+    if (icon) {
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+}
+
+
 if (menuToggle && navbar) {
 
     menuToggle.addEventListener("click", () => {
 
-        navbar.classList.toggle("open");
+        const isOpen =
+            navbar.classList.toggle("open");
+
 
         const icon =
             menuToggle.querySelector("i");
 
-        if (navbar.classList.contains("open")) {
 
-            icon.classList.remove("fa-bars");
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
 
-            icon.classList.add("fa-xmark");
+
+        if (isOpen) {
 
             menuToggle.setAttribute(
                 "aria-label",
                 "Close menu"
             );
 
+
+            if (icon) {
+
+                icon.classList.remove("fa-bars");
+
+                icon.classList.add("fa-xmark");
+
+            }
+
         } else {
 
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open menu"
-            );
+            closeMobileMenu();
 
         }
 
@@ -91,39 +139,21 @@ if (menuToggle && navbar) {
 
 navLinks.forEach((link) => {
 
-    link.addEventListener("click", () => {
-
-        if (!navbar || !menuToggle) return;
-
-        navbar.classList.remove("open");
-
-        const icon =
-            menuToggle.querySelector("i");
-
-        if (icon) {
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-        }
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open menu"
-        );
-
-    });
+    link.addEventListener(
+        "click",
+        closeMobileMenu
+    );
 
 });
 
 
 /* ==========================================
-DARK / LIGHT MODE
+   DARK / LIGHT MODE
 ========================================== */
 
 const themeToggle =
     document.getElementById("themeToggle");
+
 
 const savedTheme =
     localStorage.getItem("theme");
@@ -142,6 +172,7 @@ if (savedTheme === "dark") {
 function updateThemeIcon() {
 
     if (!themeToggle) return;
+
 
     const currentTheme =
         document.documentElement.getAttribute(
@@ -179,49 +210,53 @@ updateThemeIcon();
 
 if (themeToggle) {
 
-    themeToggle.addEventListener("click", () => {
-
-        const currentTheme =
-            document.documentElement.getAttribute(
-                "data-theme"
-            );
+    themeToggle.addEventListener(
+        "click",
+        () => {
 
 
-        if (currentTheme === "dark") {
+            const currentTheme =
+                document.documentElement.getAttribute(
+                    "data-theme"
+                );
 
-            document.documentElement.removeAttribute(
-                "data-theme"
-            );
 
-            localStorage.setItem(
-                "theme",
-                "light"
-            );
+            if (currentTheme === "dark") {
 
-        } else {
+                document.documentElement.removeAttribute(
+                    "data-theme"
+                );
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                "dark"
-            );
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
 
-            localStorage.setItem(
-                "theme",
-                "dark"
-            );
+            } else {
+
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    "dark"
+                );
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            }
+
+
+            updateThemeIcon();
 
         }
-
-
-        updateThemeIcon();
-
-    });
+    );
 
 }
 
 
 /* ==========================================
-TYPING ANIMATION
+   TYPING ANIMATION
 ========================================== */
 
 const typingText =
@@ -326,7 +361,7 @@ typeEffect();
 
 
 /* ==========================================
-HEADER SCROLL EFFECT
+   HEADER SCROLL EFFECT
 ========================================== */
 
 const header =
@@ -353,7 +388,8 @@ function updateHeader() {
 
 window.addEventListener(
     "scroll",
-    updateHeader
+    updateHeader,
+    { passive: true }
 );
 
 
@@ -361,11 +397,11 @@ updateHeader();
 
 
 /* ==========================================
-ACTIVE NAVIGATION
+   ACTIVE NAVIGATION
 ========================================== */
 
 const sections =
-    document.querySelectorAll("section");
+    document.querySelectorAll("main section");
 
 
 function updateActiveNavigation() {
@@ -374,6 +410,7 @@ function updateActiveNavigation() {
 
 
     sections.forEach((section) => {
+
 
         const sectionTop =
             section.offsetTop - 180;
@@ -402,7 +439,10 @@ function updateActiveNavigation() {
 
     navLinks.forEach((link) => {
 
-        link.classList.remove("active");
+
+        link.classList.remove(
+            "active"
+        );
 
 
         if (
@@ -412,7 +452,9 @@ function updateActiveNavigation() {
 
         ) {
 
-            link.classList.add("active");
+            link.classList.add(
+                "active"
+            );
 
         }
 
@@ -422,11 +464,9 @@ function updateActiveNavigation() {
 
 
 window.addEventListener(
-
     "scroll",
-
-    updateActiveNavigation
-
+    updateActiveNavigation,
+    { passive: true }
 );
 
 
@@ -434,7 +474,7 @@ updateActiveNavigation();
 
 
 /* ==========================================
-BACK TO TOP
+   BACK TO TOP
 ========================================== */
 
 const backToTop =
@@ -460,11 +500,9 @@ function updateBackToTop() {
 
 
 window.addEventListener(
-
     "scroll",
-
-    updateBackToTop
-
+    updateBackToTop,
+    { passive: true }
 );
 
 
@@ -474,9 +512,7 @@ updateBackToTop();
 if (backToTop) {
 
     backToTop.addEventListener(
-
         "click",
-
         () => {
 
             window.scrollTo({
@@ -488,15 +524,14 @@ if (backToTop) {
             });
 
         }
-
     );
 
 }
 
 
 /* ==========================================
-CONTACT FORM
-FORMSPREE SUBMIT
+   CONTACT FORM
+   FORMSPREE
 ========================================== */
 
 const contactForm =
@@ -510,9 +545,7 @@ const formStatus =
 if (contactForm) {
 
     contactForm.addEventListener(
-
         "submit",
-
         async function (event) {
 
 
@@ -523,6 +556,15 @@ if (contactForm) {
                 contactForm.querySelector(
                     "button[type='submit']"
                 );
+
+
+            const originalButtonHTML =
+
+                submitButton
+
+                    ? submitButton.innerHTML
+
+                    : "";
 
 
             if (formStatus) {
@@ -571,7 +613,7 @@ if (contactForm) {
 
                             headers: {
 
-                                "Accept":
+                                Accept:
                                     "application/json"
 
                             }
@@ -579,6 +621,21 @@ if (contactForm) {
                         }
 
                     );
+
+
+                let responseData = {};
+
+
+                try {
+
+                    responseData =
+                        await response.json();
+
+                } catch {
+
+                    responseData = {};
+
+                }
 
 
                 if (response.ok) {
@@ -598,68 +655,30 @@ if (contactForm) {
                     contactForm.reset();
 
 
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-
-                        submitButton.innerHTML =
-
-                            '<span class="button-text">' +
-
-                            'Send Message' +
-
-                            '</span>' +
-
-                            '<i class="fa-solid fa-paper-plane"></i>';
-
-                    }
-
-
                 } else {
 
 
-                    const responseData =
-                        await response.json();
+                    const errorMessage =
+
+                        responseData.errors
+
+                            ? responseData.errors
+                                .map(
+                                    error =>
+                                        error.message
+                                )
+                                .join(", ")
+
+                            : "Unable to send message. Please try again.";
 
 
                     if (formStatus) {
 
                         formStatus.textContent =
-
-                            responseData.errors
-
-                                ? responseData.errors
-                                    .map(
-                                        error =>
-                                            error.message
-                                    )
-                                    .join(", ")
-
-                                : "Unable to send message.";
+                            errorMessage;
 
                         formStatus.className =
                             "form-status error";
-
-                    }
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-
-                        submitButton.innerHTML =
-
-                            '<span class="button-text">' +
-
-                            'Send Message' +
-
-                            '</span>' +
-
-                            '<i class="fa-solid fa-paper-plane"></i>';
 
                     }
 
@@ -685,36 +704,28 @@ if (contactForm) {
 
                 }
 
-
-                if (submitButton) {
-
-                    submitButton.disabled =
-                        false;
+            }
 
 
-                    submitButton.innerHTML =
+            if (submitButton) {
 
-                        '<span class="button-text">' +
+                submitButton.disabled =
+                    false;
 
-                        'Send Message' +
 
-                        '</span>' +
-
-                        '<i class="fa-solid fa-paper-plane"></i>';
-
-                }
+                submitButton.innerHTML =
+                    originalButtonHTML;
 
             }
 
         }
-
     );
 
 }
 
 
 /* ==========================================
-IMAGE FALLBACK
+   IMAGE FALLBACK
 ========================================== */
 
 document
@@ -723,10 +734,9 @@ document
 
 
         image.addEventListener(
-
             "error",
-
             () => {
+
 
                 image.style.display =
                     "none";
@@ -741,14 +751,13 @@ document
                 }
 
             }
-
         );
 
     });
 
 
 /* ==========================================
-SMOOTH SCROLL
+   SMOOTH SCROLL
 ========================================== */
 
 document
@@ -759,9 +768,7 @@ document
 
 
         anchor.addEventListener(
-
             "click",
-
             function (event) {
 
 
@@ -795,20 +802,57 @@ document
                     event.preventDefault();
 
 
-                    target.scrollIntoView({
+                    const headerHeight =
+                        header
+                            ? header.offsetHeight
+                            : 80;
+
+
+                    const targetPosition =
+
+                        target.getBoundingClientRect()
+                            .top +
+
+                        window.scrollY -
+
+                        headerHeight;
+
+
+                    window.scrollTo({
+
+                        top:
+                            targetPosition,
 
                         behavior:
-                            "smooth",
-
-                        block:
-                            "start"
+                            "smooth"
 
                     });
 
                 }
 
             }
-
         );
 
     });
+
+
+/* ==========================================
+   ESCAPE KEY
+========================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape" &&
+            navbar &&
+            navbar.classList.contains("open")
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
