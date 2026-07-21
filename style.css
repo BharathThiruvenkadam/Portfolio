@@ -55,9 +55,7 @@
 }
 
 
-/* ==========================================
-   RESET
-========================================== */
+/* RESET */
 
 * {
 
@@ -73,6 +71,8 @@
 html {
 
     scroll-behavior: smooth;
+
+    scroll-padding-top: 90px;
 
 }
 
@@ -120,9 +120,7 @@ img {
 
 
 button,
-
 input,
-
 textarea {
 
     font-family: inherit;
@@ -130,9 +128,7 @@ textarea {
 }
 
 
-/* ==========================================
-   CONTAINER
-========================================== */
+/* CONTAINER */
 
 .container {
 
@@ -143,9 +139,7 @@ textarea {
 }
 
 
-/* ==========================================
-   PRELOADER
-========================================== */
+/* PRELOADER */
 
 .preloader {
 
@@ -161,7 +155,8 @@ textarea {
 
     z-index: 9999;
 
-    transition: opacity 0.5s ease,
+    transition:
+        opacity 0.5s ease,
         visibility 0.5s ease;
 
 }
@@ -204,9 +199,7 @@ textarea {
 }
 
 
-/* ==========================================
-   HEADER
-========================================== */
+/* HEADER */
 
 .header {
 
@@ -257,12 +250,9 @@ textarea {
 }
 
 
-/* ==========================================
-   LOGO
-========================================== */
+/* LOGO */
 
 .logo,
-
 .footer-logo {
 
     display: flex;
@@ -275,7 +265,6 @@ textarea {
 
 
 .logo > span,
-
 .footer-logo > span {
 
     width: 42px;
@@ -290,8 +279,7 @@ textarea {
 
     color: white;
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: 1.4rem;
 
@@ -306,7 +294,6 @@ textarea {
 
 
 .logo div,
-
 .footer-logo div {
 
     display: flex;
@@ -317,11 +304,9 @@ textarea {
 
 
 .logo strong,
-
 .footer-logo strong {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: 1rem;
 
@@ -331,7 +316,6 @@ textarea {
 
 
 .logo small,
-
 .footer-logo small {
 
     font-size: 0.55rem;
@@ -343,9 +327,7 @@ textarea {
 }
 
 
-/* ==========================================
-   NAVIGATION
-========================================== */
+/* NAVIGATION */
 
 .navbar {
 
@@ -374,7 +356,6 @@ textarea {
 
 
 .nav-link:hover,
-
 .nav-link.active {
 
     color: var(--primary);
@@ -404,7 +385,6 @@ textarea {
 
 
 .nav-link:hover::after,
-
 .nav-link.active::after {
 
     width: 100%;
@@ -424,7 +404,6 @@ textarea {
 
 
 .theme-toggle,
-
 .menu-toggle {
 
     width: 40px;
@@ -447,7 +426,6 @@ textarea {
 
 
 .theme-toggle:hover,
-
 .menu-toggle:hover {
 
     background: var(--primary);
@@ -466,9 +444,43 @@ textarea {
 }
 
 
-/* ==========================================
-   HERO
-========================================== */
+/* RESUME BUTTON */
+
+.resume-nav-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+}
+
+
+.resume-nav-btn:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* HERO */
 
 .hero {
 
@@ -560,8 +572,7 @@ textarea {
 
 .hero h1 {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: clamp(4rem, 9vw, 8rem);
 
@@ -587,8 +598,7 @@ textarea {
 
     min-height: 42px;
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: clamp(1.4rem, 3vw, 2.2rem);
 
@@ -759,9 +769,7 @@ textarea {
 }
 
 
-/* ==========================================
-   HERO VISUAL
-========================================== */
+/* HERO IMAGE */
 
 .hero-visual {
 
@@ -906,7 +914,6 @@ textarea {
 @keyframes float {
 
     0%,
-
     100% {
 
         transform: translateY(0);
@@ -922,115 +929,7 @@ textarea {
 }
 
 
-.hero-orbit {
-
-    position: absolute;
-
-    border: 1px solid var(--primary-light);
-
-    border-radius: 50%;
-
-    opacity: 0.25;
-
-}
-
-
-.orbit-one {
-
-    width: 500px;
-
-    height: 500px;
-
-    animation: rotate 25s linear infinite;
-
-}
-
-
-.orbit-two {
-
-    width: 650px;
-
-    height: 300px;
-
-    transform: rotate(45deg);
-
-    animation: rotateReverse 30s linear infinite;
-
-}
-
-
-@keyframes rotate {
-
-    to {
-
-        transform: rotate(360deg);
-
-    }
-
-}
-
-
-@keyframes rotateReverse {
-
-    to {
-
-        transform: rotate(-315deg);
-
-    }
-
-}
-
-
-.scroll-indicator {
-
-    position: absolute;
-
-    bottom: 30px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 8px;
-
-    color: var(--text-light);
-
-    font-size: 0.6rem;
-
-    letter-spacing: 2px;
-
-}
-
-
-.scroll-indicator i {
-
-    color: var(--primary);
-
-    animation: bounce 1.5s infinite;
-
-}
-
-
-@keyframes bounce {
-
-    50% {
-
-        transform: translateY(5px);
-
-    }
-
-}
-
-
-/* ==========================================
-   SECTIONS
-========================================== */
+/* SECTIONS */
 
 .section {
 
@@ -1056,8 +955,7 @@ textarea {
 
     color: var(--primary);
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: 1rem;
 
@@ -1083,8 +981,7 @@ textarea {
 
 .section-heading h2 {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: clamp(2rem, 5vw, 3.5rem);
 
@@ -1100,9 +997,7 @@ textarea {
 }
 
 
-/* ==========================================
-   ABOUT
-========================================== */
+/* ABOUT */
 
 .about-grid {
 
@@ -1213,9 +1108,7 @@ textarea {
 }
 
 
-/* ==========================================
-   SKILLS
-========================================== */
+/* SKILLS */
 
 .skills-section {
 
@@ -1228,8 +1121,7 @@ textarea {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 20px;
 
@@ -1285,8 +1177,7 @@ textarea {
 
 .skill-card h3 {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     margin-bottom: 18px;
 
@@ -1305,7 +1196,6 @@ textarea {
 
 
 .skill-tags span,
-
 .project-tech span {
 
     padding: 7px 10px;
@@ -1330,8 +1220,7 @@ textarea {
 
 .soft-skills h3 {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     margin-bottom: 20px;
 
@@ -1369,9 +1258,7 @@ textarea {
 }
 
 
-/* ==========================================
-   EDUCATION
-========================================== */
+/* EDUCATION */
 
 .timeline {
 
@@ -1475,8 +1362,7 @@ textarea {
 
 .timeline-content h3 {
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     margin: 8px 0;
 
@@ -1511,9 +1397,7 @@ textarea {
 }
 
 
-/* ==========================================
-   PROJECT
-========================================== */
+/* PROJECT */
 
 .projects-section {
 
@@ -1527,8 +1411,6 @@ textarea {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
-
-    gap: 0;
 
     overflow: hidden;
 
@@ -1643,8 +1525,7 @@ textarea {
 
     margin: 12px 0 20px;
 
-    font-family: "Space Grotesk",
-        sans-serif;
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: 2rem;
 
@@ -1721,16 +1602,13 @@ textarea {
 }
 
 
-/* ==========================================
-   CERTIFICATIONS
-========================================== */
+/* CERTIFICATIONS */
 
 .certifications-grid {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 20px;
 
@@ -1817,9 +1695,7 @@ textarea {
 }
 
 
-/* ==========================================
-   CONTACT
-========================================== */
+/* CONTACT */
 
 .contact-section {
 
@@ -1941,7 +1817,6 @@ textarea {
 
 
 .form-group input,
-
 .form-group textarea {
 
     width: 100%;
@@ -1966,7 +1841,6 @@ textarea {
 
 
 .form-group input:focus,
-
 .form-group textarea:focus {
 
     border-color: var(--primary);
@@ -1984,20 +1858,52 @@ textarea {
 }
 
 
-.form-status {
+.form-button:disabled {
 
-    margin-top: 15px;
+    opacity: 0.7;
 
-    color: var(--primary);
+    cursor: not-allowed;
 
-    font-size: 0.85rem;
+    transform: none;
 
 }
 
 
-/* ==========================================
-   FOOTER
-========================================== */
+.form-status {
+
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
+
+
+.form-status.sending {
+
+    color: var(--primary);
+
+}
+
+
+.form-status.success {
+
+    color: #16a34a;
+
+}
+
+
+.form-status.error {
+
+    color: #dc2626;
+
+}
+
+
+/* FOOTER */
 
 .footer {
 
@@ -2071,9 +1977,7 @@ textarea {
 }
 
 
-/* ==========================================
-   BACK TO TOP
-========================================== */
+/* BACK TO TOP */
 
 .back-to-top {
 
@@ -2125,12 +2029,9 @@ textarea {
 }
 
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
-
 
     .navbar {
 
@@ -2141,25 +2042,14 @@ textarea {
 
     .skills-grid {
 
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
 
     }
-
 
 }
 
 
 @media (max-width: 800px) {
-
-    .resume-nav-btn {
-
-    width: 100%;
-
-    justify-content: center;
-
-}
-
 
     .menu-toggle {
 
@@ -2184,6 +2074,8 @@ textarea {
 
         align-items: flex-start;
 
+        gap: 22px;
+
         background: var(--surface);
 
         border-bottom: 1px solid var(--border);
@@ -2202,12 +2094,18 @@ textarea {
     }
 
 
+    .resume-nav-btn {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
     .hero-container,
-
     .about-grid,
-
     .project-card,
-
     .contact-grid {
 
         grid-template-columns: 1fr;
@@ -2237,7 +2135,6 @@ textarea {
 
 
     .hero-buttons,
-
     .hero-socials {
 
         justify-content: center;
@@ -2253,7 +2150,6 @@ textarea {
 
 
     .about-grid,
-
     .contact-grid {
 
         gap: 40px;
@@ -2274,11 +2170,16 @@ textarea {
 
     }
 
-
 }
 
 
 @media (max-width: 600px) {
+
+    .container {
+
+        width: min(92%, 1180px);
+
+    }
 
 
     .section {
@@ -2340,7 +2241,6 @@ textarea {
 
 
     .skills-grid,
-
     .certifications-grid {
 
         grid-template-columns: 1fr;
@@ -2369,37 +2269,5 @@ textarea {
         padding: 25px 20px;
 
     }
-
-}
-.resume-nav-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 10px 16px;
-
-    background: var(--primary);
-
-    color: white;
-
-    border-radius: 8px;
-
-    font-size: 0.8rem;
-
-    font-weight: 600;
-
-    transition: var(--transition);
-
-}
-
-
-.resume-nav-btn:hover {
-
-    background: var(--primary-dark);
-
-    transform: translateY(-2px);
 
 }
