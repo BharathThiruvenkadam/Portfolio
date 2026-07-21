@@ -3,6 +3,7 @@
 
 <head>
 
+    <!-- BASIC META -->
     <meta charset="UTF-8">
 
     <meta
@@ -12,30 +13,83 @@
 
     <meta
         name="description"
-        content="Bharath T - Aspiring Software Developer Portfolio"
+        content="Bharath T - Aspiring Software Developer and MCA Student skilled in HTML, CSS, JavaScript, Firebase, and Web Development."
     >
 
-    <title>Bharath T | Aspiring Software Developer</title>
+    <meta
+        name="author"
+        content="Bharath T"
+    >
 
-    <!-- Google Fonts -->
+    <meta
+        name="keywords"
+        content="Bharath T, Software Developer, Web Developer, MCA Student, HTML, CSS, JavaScript, Firebase, Portfolio"
+    >
+
+    <!-- OPEN GRAPH SEO -->
+    <meta
+        property="og:title"
+        content="Bharath T | Aspiring Software Developer"
+    >
+
+    <meta
+        property="og:description"
+        content="Portfolio of Bharath T, an aspiring software developer and MCA student skilled in web development and Firebase."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:image"
+        content="images/profile.jpg"
+    >
+
+    <!-- PAGE TITLE -->
+    <title>
+        Bharath T | Aspiring Software Developer
+    </title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Font Awesome -->
+
+    <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <!-- AOS Animation -->
+
+    <!-- AOS ANIMATION -->
+
     <link
         rel="stylesheet"
         href="https://unpkg.com/aos@2.3.1/dist/aos.css"
     >
 
-    <!-- CSS -->
+
+    <!-- MAIN CSS -->
+
     <link
         rel="stylesheet"
         href="style.css"
@@ -43,21 +97,31 @@
 
 </head>
 
+
 <body>
 
-    <!-- PRELOADER -->
+
+    <!-- ==========================================
+         PRELOADER
+    =========================================== -->
 
     <div
         class="preloader"
         id="preloader"
+        aria-label="Loading website"
     >
 
-        <div class="loader"></div>
+        <div
+            class="loader"
+            role="status"
+        ></div>
 
     </div>
 
 
-    <!-- HEADER -->
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
 
     <header
         class="header"
@@ -66,27 +130,41 @@
 
         <div class="container nav-container">
 
+
+            <!-- LOGO -->
+
             <a
                 href="#home"
                 class="logo"
+                aria-label="Bharath T Home"
             >
 
-                <span>B</span>
+                <span>
+                    B
+                </span>
+
 
                 <div>
 
-                    <strong>BHARATH</strong>
+                    <strong>
+                        BHARATH
+                    </strong>
 
-                    <small>SOFTWARE DEVELOPER</small>
+                    <small>
+                        SOFTWARE DEVELOPER
+                    </small>
 
                 </div>
 
             </a>
 
 
+            <!-- NAVIGATION -->
+
             <nav
                 class="navbar"
                 id="navbar"
+                aria-label="Main navigation"
             >
 
                 <a
@@ -96,12 +174,14 @@
                     Home
                 </a>
 
+
                 <a
                     href="#about"
                     class="nav-link"
                 >
                     About
                 </a>
+
 
                 <a
                     href="#skills"
@@ -110,6 +190,7 @@
                     Skills
                 </a>
 
+
                 <a
                     href="#education"
                     class="nav-link"
@@ -117,12 +198,14 @@
                     Education
                 </a>
 
+
                 <a
                     href="#projects"
                     class="nav-link"
                 >
-                    Project
+                    Projects
                 </a>
+
 
                 <a
                     href="#certifications"
@@ -131,6 +214,7 @@
                     Certifications
                 </a>
 
+
                 <a
                     href="#contact"
                     class="nav-link"
@@ -138,13 +222,17 @@
                     Contact
                 </a>
 
+
                 <a
                     href="resume/Bharath_T_Resume.pdf"
                     download="Bharath_T_Resume.pdf"
                     class="resume-nav-btn"
                 >
 
-                    <i class="fa-solid fa-download"></i>
+                    <i
+                        class="fa-solid fa-download"
+                        aria-hidden="true"
+                    ></i>
 
                     Resume
 
@@ -153,7 +241,12 @@
             </nav>
 
 
+            <!-- NAVIGATION ACTIONS -->
+
             <div class="nav-actions">
+
+
+                <!-- THEME TOGGLE -->
 
                 <button
                     class="theme-toggle"
@@ -162,19 +255,28 @@
                     aria-label="Switch to dark mode"
                 >
 
-                    <i class="fa-solid fa-moon"></i>
+                    <i
+                        class="fa-solid fa-moon"
+                        aria-hidden="true"
+                    ></i>
 
                 </button>
 
+
+                <!-- MOBILE MENU -->
 
                 <button
                     class="menu-toggle"
                     id="menuToggle"
                     type="button"
-                    aria-label="Open menu"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
                 >
 
-                    <i class="fa-solid fa-bars"></i>
+                    <i
+                        class="fa-solid fa-bars"
+                        aria-hidden="true"
+                    ></i>
 
                 </button>
 
@@ -185,12 +287,16 @@
     </header>
 
 
-    <!-- MAIN -->
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
 
     <main>
 
 
-        <!-- HERO -->
+        <!-- ==========================================
+             HERO SECTION
+        =========================================== -->
 
         <section
             class="hero"
@@ -200,6 +306,8 @@
             <div class="container hero-container">
 
 
+                <!-- HERO CONTENT -->
+
                 <div
                     class="hero-content"
                     data-aos="fade-right"
@@ -207,7 +315,10 @@
 
                     <p class="hero-intro">
 
-                        <span class="line"></span>
+                        <span
+                            class="line"
+                            aria-hidden="true"
+                        ></span>
 
                         HELLO, I'M
 
@@ -218,14 +329,19 @@
 
                         BHARATH
 
-                        <span>T</span>
+                        <span>
+                            T
+                        </span>
 
                     </h1>
 
 
                     <h2>
 
-                        <span id="typingText"></span>
+                        <span
+                            id="typingText"
+                            aria-live="polite"
+                        ></span>
 
                     </h2>
 
@@ -240,7 +356,10 @@
                     </p>
 
 
+                    <!-- HERO BUTTONS -->
+
                     <div class="hero-buttons">
+
 
                         <a
                             href="#projects"
@@ -249,7 +368,10 @@
 
                             View My Project
 
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <i
+                                class="fa-solid fa-arrow-right"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
@@ -262,7 +384,10 @@
 
                             Download Resume
 
-                            <i class="fa-solid fa-download"></i>
+                            <i
+                                class="fa-solid fa-download"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
@@ -279,16 +404,22 @@
                     </div>
 
 
+                    <!-- SOCIAL LINKS -->
+
                     <div class="hero-socials">
+
 
                         <a
                             href="https://github.com/BharathThiruvenkadam"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="GitHub"
+                            aria-label="Visit GitHub profile"
                         >
 
-                            <i class="fa-brands fa-github"></i>
+                            <i
+                                class="fa-brands fa-github"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
@@ -297,20 +428,26 @@
                             href="https://linkedin.com/in/bharaththiruvenkadam"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="LinkedIn"
+                            aria-label="Visit LinkedIn profile"
                         >
 
-                            <i class="fa-brands fa-linkedin-in"></i>
+                            <i
+                                class="fa-brands fa-linkedin-in"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
 
                         <a
                             href="mailto:bharathdavid92@email.com"
-                            aria-label="Email"
+                            aria-label="Send email"
                         >
 
-                            <i class="fa-solid fa-envelope"></i>
+                            <i
+                                class="fa-solid fa-envelope"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
@@ -318,6 +455,8 @@
 
                 </div>
 
+
+                <!-- HERO VISUAL -->
 
                 <div
                     class="hero-visual"
@@ -326,69 +465,107 @@
 
                     <div class="hero-image-wrapper">
 
-                        <div class="image-border"></div>
+
+                        <div
+                            class="image-border"
+                            aria-hidden="true"
+                        ></div>
 
 
                         <div class="hero-image">
 
                             <img
                                 src="images/profile.jpg"
-                                alt="Bharath T"
+                                alt="Portrait of Bharath T"
+                                fetchpriority="high"
                             >
 
                         </div>
 
 
+                        <!-- FLOATING SKILL CARDS -->
+
                         <div class="floating-card card-one">
 
-                            <i class="fa-brands fa-html5"></i>
+                            <i
+                                class="fa-brands fa-html5"
+                                aria-hidden="true"
+                            ></i>
 
-                            <span>HTML5</span>
+                            <span>
+                                HTML5
+                            </span>
 
                         </div>
 
 
                         <div class="floating-card card-two">
 
-                            <i class="fa-brands fa-js"></i>
+                            <i
+                                class="fa-brands fa-js"
+                                aria-hidden="true"
+                            ></i>
 
-                            <span>JavaScript</span>
+                            <span>
+                                JavaScript
+                            </span>
 
                         </div>
 
 
                         <div class="floating-card card-three">
 
-                            <i class="fa-solid fa-fire"></i>
+                            <i
+                                class="fa-solid fa-fire"
+                                aria-hidden="true"
+                            ></i>
 
-                            <span>Firebase</span>
+                            <span>
+                                Firebase
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <div class="hero-orbit orbit-one"></div>
+                    <div
+                        class="hero-orbit orbit-one"
+                        aria-hidden="true"
+                    ></div>
 
-                    <div class="hero-orbit orbit-two"></div>
+
+                    <div
+                        class="hero-orbit orbit-two"
+                        aria-hidden="true"
+                    ></div>
 
                 </div>
 
             </div>
 
 
+            <!-- SCROLL INDICATOR -->
+
             <div class="scroll-indicator">
 
-                <span>SCROLL TO EXPLORE</span>
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
 
-                <i class="fa-solid fa-arrow-down"></i>
+                <i
+                    class="fa-solid fa-arrow-down"
+                    aria-hidden="true"
+                ></i>
 
             </div>
 
         </section>
 
 
-        <!-- ABOUT -->
+        <!-- ==========================================
+             ABOUT SECTION
+        =========================================== -->
 
         <section
             class="section about-section"
@@ -397,12 +574,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">01</span>
+                    <span class="section-number">
+                        01
+                    </span>
+
 
                     <div>
 
@@ -410,11 +591,14 @@
                             ABOUT ME
                         </p>
 
+
                         <h2>
 
                             Building solutions with
 
-                            <span>technology</span>
+                            <span>
+                                technology
+                            </span>
 
                         </h2>
 
@@ -425,35 +609,44 @@
 
                 <div class="about-grid">
 
+
                     <div
                         class="about-text"
                         data-aos="fade-right"
                     >
 
                         <p>
+
                             I am an aspiring software developer and motivated
                             MCA student with a strong interest in web development
                             and software technologies.
+
                         </p>
 
 
                         <p>
+
                             I have practical experience in HTML, CSS, JavaScript,
                             Firebase Authentication, Firestore, and Firebase Hosting.
+
                         </p>
 
 
                         <p>
+
                             I built a responsive Gym Management System with secure
                             authentication, member management, real-time database
                             features, QR code-based attendance tracking, and Firebase
                             Hosting deployment.
+
                         </p>
 
 
                         <p>
+
                             I am seeking an entry-level Software Developer role to
                             apply my technical skills and continue learning.
+
                         </p>
 
                     </div>
@@ -464,13 +657,21 @@
                         data-aos="fade-left"
                     >
 
+
                         <div class="info-card">
 
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i
+                                class="fa-solid fa-graduation-cap"
+                                aria-hidden="true"
+                            ></i>
+
 
                             <div>
 
-                                <span>Currently Pursuing</span>
+                                <span>
+                                    Currently Pursuing
+                                </span>
+
 
                                 <strong>
                                     Master of Computer Applications
@@ -483,11 +684,18 @@
 
                         <div class="info-card">
 
-                            <i class="fa-solid fa-code"></i>
+                            <i
+                                class="fa-solid fa-code"
+                                aria-hidden="true"
+                            ></i>
+
 
                             <div>
 
-                                <span>Core Focus</span>
+                                <span>
+                                    Core Focus
+                                </span>
+
 
                                 <strong>
                                     Web Development
@@ -500,11 +708,18 @@
 
                         <div class="info-card">
 
-                            <i class="fa-solid fa-database"></i>
+                            <i
+                                class="fa-solid fa-database"
+                                aria-hidden="true"
+                            ></i>
+
 
                             <div>
 
-                                <span>Backend Technology</span>
+                                <span>
+                                    Backend Technology
+                                </span>
+
 
                                 <strong>
                                     Firebase
@@ -517,11 +732,18 @@
 
                         <div class="info-card">
 
-                            <i class="fa-solid fa-language"></i>
+                            <i
+                                class="fa-solid fa-language"
+                                aria-hidden="true"
+                            ></i>
+
 
                             <div>
 
-                                <span>Languages</span>
+                                <span>
+                                    Languages
+                                </span>
+
 
                                 <strong>
                                     English & Tamil
@@ -540,7 +762,9 @@
         </section>
 
 
-        <!-- SKILLS -->
+        <!-- ==========================================
+             SKILLS SECTION
+        =========================================== -->
 
         <section
             class="section skills-section"
@@ -549,12 +773,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">02</span>
+                    <span class="section-number">
+                        02
+                    </span>
+
 
                     <div>
 
@@ -562,11 +790,14 @@
                             TECHNICAL SKILLS
                         </p>
 
+
                         <h2>
 
                             My technical
 
-                            <span>toolkit</span>
+                            <span>
+                                toolkit
+                            </span>
 
                         </h2>
 
@@ -580,29 +811,45 @@
                     data-aos="fade-up"
                 >
 
+
                     <div class="skill-card">
 
                         <div class="skill-icon">
 
-                            <i class="fa-solid fa-code"></i>
+                            <i
+                                class="fa-solid fa-code"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <h3>
                             Frontend Development
                         </h3>
 
+
                         <div class="skill-tags">
 
-                            <span>HTML5</span>
+                            <span>
+                                HTML5
+                            </span>
 
-                            <span>CSS3</span>
+                            <span>
+                                CSS3
+                            </span>
 
-                            <span>JavaScript (ES6)</span>
+                            <span>
+                                JavaScript (ES6)
+                            </span>
 
-                            <span>DOM Manipulation</span>
+                            <span>
+                                DOM Manipulation
+                            </span>
 
-                            <span>Responsive Web Design</span>
+                            <span>
+                                Responsive Web Design
+                            </span>
 
                         </div>
 
@@ -613,21 +860,32 @@
 
                         <div class="skill-icon">
 
-                            <i class="fa-solid fa-fire"></i>
+                            <i
+                                class="fa-solid fa-fire"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <h3>
                             Firebase
                         </h3>
 
+
                         <div class="skill-tags">
 
-                            <span>Firebase Auth</span>
+                            <span>
+                                Firebase Auth
+                            </span>
 
-                            <span>Firestore</span>
+                            <span>
+                                Firestore
+                            </span>
 
-                            <span>Firebase Hosting</span>
+                            <span>
+                                Firebase Hosting
+                            </span>
 
                         </div>
 
@@ -638,17 +896,24 @@
 
                         <div class="skill-icon">
 
-                            <i class="fa-solid fa-database"></i>
+                            <i
+                                class="fa-solid fa-database"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <h3>
                             Development Concepts
                         </h3>
 
+
                         <div class="skill-tags">
 
-                            <span>CRUD Operations</span>
+                            <span>
+                                CRUD Operations
+                            </span>
 
                         </div>
 
@@ -659,19 +924,28 @@
 
                         <div class="skill-icon">
 
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <i
+                                class="fa-solid fa-screwdriver-wrench"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <h3>
                             Tools
                         </h3>
 
+
                         <div class="skill-tags">
 
-                            <span>Git & GitHub</span>
+                            <span>
+                                Git & GitHub
+                            </span>
 
-                            <span>Visual Studio Code</span>
+                            <span>
+                                Visual Studio Code
+                            </span>
 
                         </div>
 
@@ -679,6 +953,8 @@
 
                 </div>
 
+
+                <!-- SOFT SKILLS -->
 
                 <div
                     class="soft-skills"
@@ -689,11 +965,16 @@
                         Soft Skills
                     </h3>
 
+
                     <div class="soft-skill-list">
+
 
                         <span>
 
-                            <i class="fa-solid fa-check"></i>
+                            <i
+                                class="fa-solid fa-check"
+                                aria-hidden="true"
+                            ></i>
 
                             Communication
 
@@ -702,7 +983,10 @@
 
                         <span>
 
-                            <i class="fa-solid fa-check"></i>
+                            <i
+                                class="fa-solid fa-check"
+                                aria-hidden="true"
+                            ></i>
 
                             Teamwork
 
@@ -711,7 +995,10 @@
 
                         <span>
 
-                            <i class="fa-solid fa-check"></i>
+                            <i
+                                class="fa-solid fa-check"
+                                aria-hidden="true"
+                            ></i>
 
                             Quick Learner
 
@@ -720,7 +1007,10 @@
 
                         <span>
 
-                            <i class="fa-solid fa-check"></i>
+                            <i
+                                class="fa-solid fa-check"
+                                aria-hidden="true"
+                            ></i>
 
                             Time Management
 
@@ -735,7 +1025,9 @@
         </section>
 
 
-        <!-- EDUCATION -->
+        <!-- ==========================================
+             EDUCATION SECTION
+        =========================================== -->
 
         <section
             class="section education-section"
@@ -744,12 +1036,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">03</span>
+                    <span class="section-number">
+                        03
+                    </span>
+
 
                     <div>
 
@@ -757,11 +1053,14 @@
                             EDUCATION
                         </p>
 
+
                         <h2>
 
                             My academic
 
-                            <span>journey</span>
+                            <span>
+                                journey
+                            </span>
 
                         </h2>
 
@@ -775,9 +1074,14 @@
                     data-aos="fade-up"
                 >
 
+
                     <div class="timeline-item">
 
-                        <div class="timeline-dot"></div>
+                        <div
+                            class="timeline-dot"
+                            aria-hidden="true"
+                        ></div>
+
 
                         <div class="timeline-content">
 
@@ -785,14 +1089,17 @@
                                 2025 – 2027
                             </span>
 
+
                             <h3>
                                 Master of Computer Applications
                             </h3>
+
 
                             <p>
                                 Karpaga Vinayaga College of Engineering
                                 and Technology
                             </p>
+
 
                             <span class="status">
                                 Pursuing
@@ -805,7 +1112,11 @@
 
                     <div class="timeline-item">
 
-                        <div class="timeline-dot"></div>
+                        <div
+                            class="timeline-dot"
+                            aria-hidden="true"
+                        ></div>
+
 
                         <div class="timeline-content">
 
@@ -813,13 +1124,16 @@
                                 2020 – 2023
                             </span>
 
+
                             <h3>
                                 Bachelor of Science, Computer Science
                             </h3>
 
+
                             <p>
                                 Vels University
                             </p>
+
 
                             <span class="status">
                                 67%
@@ -832,7 +1146,11 @@
 
                     <div class="timeline-item">
 
-                        <div class="timeline-dot"></div>
+                        <div
+                            class="timeline-dot"
+                            aria-hidden="true"
+                        ></div>
+
 
                         <div class="timeline-content">
 
@@ -840,13 +1158,16 @@
                                 2020
                             </span>
 
+
                             <h3>
                                 Higher Secondary Certificate
                             </h3>
 
+
                             <p>
                                 Little Jacky Matric Higher Secondary School
                             </p>
+
 
                             <span class="status">
                                 53%
@@ -859,7 +1180,11 @@
 
                     <div class="timeline-item">
 
-                        <div class="timeline-dot"></div>
+                        <div
+                            class="timeline-dot"
+                            aria-hidden="true"
+                        ></div>
+
 
                         <div class="timeline-content">
 
@@ -867,13 +1192,16 @@
                                 2018
                             </span>
 
+
                             <h3>
                                 Secondary School Leaving Certificate
                             </h3>
 
+
                             <p>
                                 Little Jacky Matric Higher Secondary School
                             </p>
+
 
                             <span class="status">
                                 71%
@@ -890,7 +1218,9 @@
         </section>
 
 
-        <!-- PROJECTS -->
+        <!-- ==========================================
+             PROJECTS SECTION
+        =========================================== -->
 
         <section
             class="section projects-section"
@@ -899,12 +1229,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">04</span>
+                    <span class="section-number">
+                        04
+                    </span>
+
 
                     <div>
 
@@ -912,11 +1246,14 @@
                             PROJECT
                         </p>
 
+
                         <h2>
 
                             Featured
 
-                            <span>project</span>
+                            <span>
+                                project
+                            </span>
 
                         </h2>
 
@@ -930,12 +1267,18 @@
                     data-aos="fade-up"
                 >
 
+
+                    <!-- PROJECT IMAGE -->
+
                     <div class="project-image">
 
                         <img
                             src="images/gym-management-system.jpg"
-                            alt="Gym Management System"
+                            alt="Gym Management System dashboard"
+                            loading="lazy"
+                            decoding="async"
                         >
+
 
                         <div class="project-overlay">
 
@@ -944,10 +1287,13 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="project-link"
-                                aria-label="Open Gym Management System"
+                                aria-label="Open Gym Management System live demo"
                             >
 
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square"
+                                    aria-hidden="true"
+                                ></i>
 
                             </a>
 
@@ -956,7 +1302,10 @@
                     </div>
 
 
+                    <!-- PROJECT CONTENT -->
+
                     <div class="project-content">
+
 
                         <span class="project-label">
                             GYM MANAGEMENT SYSTEM
@@ -969,81 +1318,148 @@
 
 
                         <p>
+
                             Developed a responsive Gym Management System using
                             HTML, CSS, JavaScript and Firebase with secure authentication,
                             member management, real-time database features, and QR
                             code-based attendance tracking.
+
                         </p>
 
 
                         <ul class="project-features">
 
+
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Secure login using Firebase Authentication.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Member registration, editing and renewal modules.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Member data stored using Firebase Firestore.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 QR code scanning for attendance marking.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Permanent attendance records using Firestore.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Monthly attendance tracking and history.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Deployed using Firebase Hosting.
+
                             </li>
 
 
                             <li>
-                                <i class="fa-solid fa-check"></i>
+
+                                <i
+                                    class="fa-solid fa-check"
+                                    aria-hidden="true"
+                                ></i>
+
                                 Responsive desktop and mobile interface.
+
                             </li>
 
                         </ul>
 
 
+                        <!-- TECHNOLOGIES -->
+
                         <div class="project-tech">
 
-                            <span>HTML5</span>
+                            <span>
+                                HTML5
+                            </span>
 
-                            <span>CSS3</span>
+                            <span>
+                                CSS3
+                            </span>
 
-                            <span>JavaScript</span>
+                            <span>
+                                JavaScript
+                            </span>
 
-                            <span>Firebase Auth</span>
+                            <span>
+                                Firebase Auth
+                            </span>
 
-                            <span>Firestore</span>
+                            <span>
+                                Firestore
+                            </span>
 
-                            <span>QR Code Scanner</span>
+                            <span>
+                                QR Code Scanner
+                            </span>
 
                         </div>
 
+
+                        <!-- LIVE DEMO -->
 
                         <a
                             href="https://legacy-fitness-zone.web.app"
@@ -1054,7 +1470,10 @@
 
                             View Live Demo
 
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <i
+                                class="fa-solid fa-arrow-right"
+                                aria-hidden="true"
+                            ></i>
 
                         </a>
 
@@ -1067,7 +1486,9 @@
         </section>
 
 
-        <!-- CERTIFICATIONS -->
+        <!-- ==========================================
+             CERTIFICATIONS SECTION
+        =========================================== -->
 
         <section
             class="section certifications-section"
@@ -1076,12 +1497,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">05</span>
+                    <span class="section-number">
+                        05
+                    </span>
+
 
                     <div>
 
@@ -1089,11 +1514,14 @@
                             CERTIFICATIONS
                         </p>
 
+
                         <h2>
 
                             Continuous
 
-                            <span>learning</span>
+                            <span>
+                                learning
+                            </span>
 
                         </h2>
 
@@ -1107,13 +1535,18 @@
                     data-aos="fade-up"
                 >
 
+
                     <div class="certification-card">
 
                         <div class="certification-icon">
 
-                            <i class="fa-brands fa-html5"></i>
+                            <i
+                                class="fa-brands fa-html5"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <div>
 
@@ -1122,9 +1555,11 @@
                                 2024 Edition
                             </h3>
 
+
                             <p>
                                 Udemy
                             </p>
+
 
                             <span>
                                 Sept. 2025 | 36 Hours
@@ -1139,9 +1574,13 @@
 
                         <div class="certification-icon">
 
-                            <i class="fa-brands fa-react"></i>
+                            <i
+                                class="fa-brands fa-react"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <div>
 
@@ -1149,9 +1588,11 @@
                                 Industry-Oriented Training in React JS
                             </h3>
 
+
                             <p>
                                 IQmath Technologies LLP
                             </p>
+
 
                             <span>
                                 Jan. 2026 | 30 Hours
@@ -1166,9 +1607,13 @@
 
                         <div class="certification-icon">
 
-                            <i class="fa-solid fa-users"></i>
+                            <i
+                                class="fa-solid fa-users"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <div>
 
@@ -1177,9 +1622,11 @@
                                 COLOSIUM 2K26
                             </h3>
 
+
                             <p>
                                 Participation
                             </p>
+
 
                             <span>
                                 Feb. 2026
@@ -1194,9 +1641,13 @@
 
                         <div class="certification-icon">
 
-                            <i class="fa-solid fa-pen-ruler"></i>
+                            <i
+                                class="fa-solid fa-pen-ruler"
+                                aria-hidden="true"
+                            ></i>
 
                         </div>
+
 
                         <div>
 
@@ -1204,9 +1655,11 @@
                                 UI/UX Webinar
                             </h3>
 
+
                             <p>
                                 Brand Monk Academy
                             </p>
+
 
                             <span>
                                 Mar. 2026 | Participation Certificate
@@ -1223,7 +1676,9 @@
         </section>
 
 
-        <!-- CONTACT -->
+        <!-- ==========================================
+             CONTACT SECTION
+        =========================================== -->
 
         <section
             class="section contact-section"
@@ -1232,12 +1687,16 @@
 
             <div class="container">
 
+
                 <div
                     class="section-heading"
                     data-aos="fade-up"
                 >
 
-                    <span class="section-number">06</span>
+                    <span class="section-number">
+                        06
+                    </span>
+
 
                     <div>
 
@@ -1245,11 +1704,14 @@
                             CONTACT
                         </p>
 
+
                         <h2>
 
                             Let's connect and
 
-                            <span>create</span>
+                            <span>
+                                create
+                            </span>
 
                         </h2>
 
@@ -1261,28 +1723,43 @@
                 <div class="contact-grid">
 
 
+                    <!-- CONTACT INFORMATION -->
+
                     <div
                         class="contact-info"
                         data-aos="fade-right"
                     >
 
                         <p>
+
                             I am currently seeking an entry-level Software
                             Developer opportunity.
+
                         </p>
 
 
                         <div class="contact-item">
 
                             <div class="contact-icon">
-                                <i class="fa-solid fa-phone"></i>
+
+                                <i
+                                    class="fa-solid fa-phone"
+                                    aria-hidden="true"
+                                ></i>
+
                             </div>
+
 
                             <div>
 
-                                <span>Phone</span>
+                                <span>
+                                    Phone
+                                </span>
 
-                                <a href="tel:+919790442360">
+
+                                <a
+                                    href="tel:+919790442360"
+                                >
                                     +91 9790442360
                                 </a>
 
@@ -1294,14 +1771,25 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-                                <i class="fa-solid fa-envelope"></i>
+
+                                <i
+                                    class="fa-solid fa-envelope"
+                                    aria-hidden="true"
+                                ></i>
+
                             </div>
+
 
                             <div>
 
-                                <span>Email</span>
+                                <span>
+                                    Email
+                                </span>
 
-                                <a href="mailto:bharathdavid92@email.com">
+
+                                <a
+                                    href="mailto:bharathdavid92@email.com"
+                                >
                                     bharathdavid92@email.com
                                 </a>
 
@@ -1313,12 +1801,21 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-                                <i class="fa-brands fa-linkedin-in"></i>
+
+                                <i
+                                    class="fa-brands fa-linkedin-in"
+                                    aria-hidden="true"
+                                ></i>
+
                             </div>
+
 
                             <div>
 
-                                <span>LinkedIn</span>
+                                <span>
+                                    LinkedIn
+                                </span>
+
 
                                 <a
                                     href="https://linkedin.com/in/bharaththiruvenkadam"
@@ -1336,12 +1833,21 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-                                <i class="fa-brands fa-github"></i>
+
+                                <i
+                                    class="fa-brands fa-github"
+                                    aria-hidden="true"
+                                ></i>
+
                             </div>
+
 
                             <div>
 
-                                <span>GitHub</span>
+                                <span>
+                                    GitHub
+                                </span>
+
 
                                 <a
                                     href="https://github.com/BharathThiruvenkadam"
@@ -1368,11 +1874,13 @@
                         data-aos="fade-left"
                     >
 
+
                         <input
                             type="hidden"
                             name="_subject"
                             value="New Portfolio Contact Message"
                         >
+
 
                         <input
                             type="hidden"
@@ -1380,11 +1888,13 @@
                             value="table"
                         >
 
+
                         <input
                             type="hidden"
                             name="_captcha"
                             value="false"
                         >
+
 
                         <input
                             type="hidden"
@@ -1393,45 +1903,62 @@
                         >
 
 
+                        <!-- NAME -->
+
                         <div class="form-group">
 
-                            <label for="name">
+                            <label
+                                for="name"
+                            >
                                 Your Name
                             </label>
+
 
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
                                 placeholder="Enter your name"
+                                autocomplete="name"
                                 required
                             >
 
                         </div>
 
 
+                        <!-- EMAIL -->
+
                         <div class="form-group">
 
-                            <label for="email">
+                            <label
+                                for="email"
+                            >
                                 Your Email
                             </label>
+
 
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 placeholder="Enter your email"
+                                autocomplete="email"
                                 required
                             >
 
                         </div>
 
 
+                        <!-- SUBJECT -->
+
                         <div class="form-group">
 
-                            <label for="subject">
+                            <label
+                                for="subject"
+                            >
                                 Subject
                             </label>
+
 
                             <input
                                 type="text"
@@ -1444,11 +1971,16 @@
                         </div>
 
 
+                        <!-- MESSAGE -->
+
                         <div class="form-group">
 
-                            <label for="message">
+                            <label
+                                for="message"
+                            >
                                 Message
                             </label>
+
 
                             <textarea
                                 id="message"
@@ -1461,6 +1993,8 @@
                         </div>
 
 
+                        <!-- SUBMIT BUTTON -->
+
                         <button
                             type="submit"
                             class="btn btn-primary form-button"
@@ -1470,14 +2004,21 @@
                                 Send Message
                             </span>
 
-                            <i class="fa-solid fa-paper-plane"></i>
+
+                            <i
+                                class="fa-solid fa-paper-plane"
+                                aria-hidden="true"
+                            ></i>
 
                         </button>
 
 
+                        <!-- FORM STATUS -->
+
                         <p
                             class="form-status"
                             id="formStatus"
+                            aria-live="polite"
                         ></p>
 
                     </form>
@@ -1491,21 +2032,28 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
 
     <footer class="footer">
 
         <div class="container footer-container">
 
+
             <div class="footer-logo">
 
-                <span>B</span>
+                <span>
+                    B
+                </span>
+
 
                 <div>
 
                     <strong>
                         BHARATH T
                     </strong>
+
 
                     <small>
                         ASPIRING SOFTWARE DEVELOPER
@@ -1523,14 +2071,18 @@
 
             <div class="footer-socials">
 
+
                 <a
                     href="https://github.com/BharathThiruvenkadam"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="GitHub"
+                    aria-label="Visit GitHub profile"
                 >
 
-                    <i class="fa-brands fa-github"></i>
+                    <i
+                        class="fa-brands fa-github"
+                        aria-hidden="true"
+                    ></i>
 
                 </a>
 
@@ -1539,10 +2091,13 @@
                     href="https://linkedin.com/in/bharaththiruvenkadam"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="LinkedIn"
+                    aria-label="Visit LinkedIn profile"
                 >
 
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i
+                        class="fa-brands fa-linkedin-in"
+                        aria-hidden="true"
+                    ></i>
 
                 </a>
 
@@ -1553,7 +2108,9 @@
     </footer>
 
 
-    <!-- BACK TO TOP -->
+    <!-- ==========================================
+         BACK TO TOP
+    =========================================== -->
 
     <button
         class="back-to-top"
@@ -1562,21 +2119,31 @@
         aria-label="Back to top"
     >
 
-        <i class="fa-solid fa-arrow-up"></i>
+        <i
+            class="fa-solid fa-arrow-up"
+            aria-hidden="true"
+        ></i>
 
     </button>
 
 
-    <!-- AOS JS -->
+    <!-- ==========================================
+         AOS JAVASCRIPT
+    =========================================== -->
 
     <script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
     ></script>
 
 
-    <!-- MAIN JS -->
+    <!-- ==========================================
+         MAIN JAVASCRIPT
+    =========================================== -->
 
-    <script src="script.js"></script>
+    <script
+        src="script.js"
+    ></script>
+
 
 </body>
 
