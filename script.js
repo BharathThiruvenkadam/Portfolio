@@ -1,5 +1,5 @@
 /* ==========================================
-   PRELOADER
+PRELOADER
 ========================================== */
 
 window.addEventListener("load", () => {
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
 
 
 /* ==========================================
-   AOS ANIMATION
+AOS ANIMATION
 ========================================== */
 
 if (typeof AOS !== "undefined") {
@@ -38,7 +38,7 @@ if (typeof AOS !== "undefined") {
 
 
 /* ==========================================
-   MOBILE MENU
+MOBILE MENU
 ========================================== */
 
 const menuToggle =
@@ -119,7 +119,7 @@ navLinks.forEach((link) => {
 
 
 /* ==========================================
-   DARK / LIGHT MODE
+DARK / LIGHT MODE
 ========================================== */
 
 const themeToggle =
@@ -221,7 +221,7 @@ if (themeToggle) {
 
 
 /* ==========================================
-   TYPING ANIMATION
+TYPING ANIMATION
 ========================================== */
 
 const typingText =
@@ -280,8 +280,12 @@ function typeEffect() {
 
 
     if (
+
         !isDeleting &&
-        characterIndex === currentWord.length
+
+        characterIndex ===
+        currentWord.length
+
     ) {
 
         speed = 1800;
@@ -292,8 +296,11 @@ function typeEffect() {
 
 
     if (
+
         isDeleting &&
+
         characterIndex === 0
+
     ) {
 
         isDeleting = false;
@@ -319,7 +326,7 @@ typeEffect();
 
 
 /* ==========================================
-   HEADER SCROLL EFFECT
+HEADER SCROLL EFFECT
 ========================================== */
 
 const header =
@@ -354,7 +361,7 @@ updateHeader();
 
 
 /* ==========================================
-   ACTIVE NAVIGATION
+ACTIVE NAVIGATION
 ========================================== */
 
 const sections =
@@ -415,8 +422,11 @@ function updateActiveNavigation() {
 
 
 window.addEventListener(
+
     "scroll",
+
     updateActiveNavigation
+
 );
 
 
@@ -424,7 +434,7 @@ updateActiveNavigation();
 
 
 /* ==========================================
-   BACK TO TOP
+BACK TO TOP
 ========================================== */
 
 const backToTop =
@@ -450,8 +460,11 @@ function updateBackToTop() {
 
 
 window.addEventListener(
+
     "scroll",
+
     updateBackToTop
+
 );
 
 
@@ -461,7 +474,9 @@ updateBackToTop();
 if (backToTop) {
 
     backToTop.addEventListener(
+
         "click",
+
         () => {
 
             window.scrollTo({
@@ -473,13 +488,15 @@ if (backToTop) {
             });
 
         }
+
     );
 
 }
 
 
 /* ==========================================
-   CONTACT FORM - FORMSPREE
+CONTACT FORM
+FORM SUBMIT
 ========================================== */
 
 const contactForm =
@@ -493,29 +510,12 @@ const formStatus =
 if (contactForm) {
 
     contactForm.addEventListener(
-        "submit",
-        async function (event) {
 
-            /*
-            IMPORTANT:
-            Prevent normal page reload.
-            */
+        "submit",
+
+        async (event) => {
 
             event.preventDefault();
-
-
-            const submitButton =
-                contactForm.querySelector(
-                    "button[type='submit']"
-                );
-
-
-            const buttonText =
-                submitButton.querySelector("span");
-
-
-            const buttonIcon =
-                submitButton.querySelector("i");
 
 
             if (formStatus) {
@@ -529,38 +529,42 @@ if (contactForm) {
             }
 
 
-            submitButton.disabled = true;
+            const submitButton =
+                contactForm.querySelector(
+                    "button[type='submit']"
+                );
 
 
-            if (buttonText) {
+            if (submitButton) {
 
-                buttonText.textContent =
-                    "Sending...";
+                submitButton.disabled =
+                    true;
 
-            }
+                submitButton.innerHTML =
 
+                    'Sending... ' +
 
-            if (buttonIcon) {
-
-                buttonIcon.className =
-                    "fa-solid fa-spinner fa-spin";
+                    '<i class="fa-solid fa-spinner fa-spin"></i>';
 
             }
 
 
             try {
 
+                const formData =
+                    new FormData(contactForm);
+
+
                 const response =
                     await fetch(
+
                         contactForm.action,
+
                         {
 
                             method: "POST",
 
-                            body:
-                                new FormData(
-                                    contactForm
-                                ),
+                            body: formData,
 
                             headers: {
 
@@ -570,30 +574,43 @@ if (contactForm) {
                             }
 
                         }
+
                     );
 
 
-                if (response.ok) {
-
-                    if (formStatus) {
-
-                        formStatus.textContent =
-                            "Message sent successfully!";
-
-                        formStatus.className =
-                            "form-status success";
-
-                    }
-
-
-                    contactForm.reset();
-
-
-                } else {
+                if (!response.ok) {
 
                     throw new Error(
-                        "Form submission failed"
+                        "Message sending failed"
                     );
+
+                }
+
+
+                if (formStatus) {
+
+                    formStatus.textContent =
+                        "Message sent successfully!";
+
+                    formStatus.className =
+                        "form-status success";
+
+                }
+
+
+                contactForm.reset();
+
+
+                if (submitButton) {
+
+                    submitButton.disabled =
+                        false;
+
+                    submitButton.innerHTML =
+
+                        'Send Message ' +
+
+                        '<i class="fa-solid fa-paper-plane"></i>';
 
                 }
 
@@ -601,7 +618,7 @@ if (contactForm) {
             } catch (error) {
 
                 console.error(
-                    "Form Error:",
+                    "Contact form error:",
                     error
                 );
 
@@ -616,43 +633,42 @@ if (contactForm) {
 
                 }
 
-            }
 
+                if (submitButton) {
 
-            submitButton.disabled = false;
+                    submitButton.disabled =
+                        false;
 
+                    submitButton.innerHTML =
 
-            if (buttonText) {
+                        'Send Message ' +
 
-                buttonText.textContent =
-                    "Send Message";
+                        '<i class="fa-solid fa-paper-plane"></i>';
 
-            }
-
-
-            if (buttonIcon) {
-
-                buttonIcon.className =
-                    "fa-solid fa-paper-plane";
+                }
 
             }
 
         }
+
     );
 
 }
 
 
 /* ==========================================
-   IMAGE FALLBACK
+IMAGE FALLBACK
 ========================================== */
 
 document
     .querySelectorAll("img")
     .forEach((image) => {
 
+
         image.addEventListener(
+
             "error",
+
             () => {
 
                 image.style.display =
@@ -668,13 +684,14 @@ document
                 }
 
             }
+
         );
 
     });
 
 
 /* ==========================================
-   SMOOTH SCROLL
+SMOOTH SCROLL
 ========================================== */
 
 document
@@ -683,9 +700,13 @@ document
     )
     .forEach((anchor) => {
 
+
         anchor.addEventListener(
+
             "click",
+
             function (event) {
+
 
                 const targetId =
                     this.getAttribute(
@@ -730,6 +751,7 @@ document
                 }
 
             }
+
         );
 
     });
