@@ -1,9 +1,4 @@
 /* ==========================================
-   PORTFOLIO MAIN JAVASCRIPT
-========================================== */
-
-
-/* ==========================================
    PRELOADER
 ========================================== */
 
@@ -56,76 +51,69 @@ const navLinks =
     document.querySelectorAll(".nav-link");
 
 
-function closeMobileMenu() {
-
-    if (!navbar || !menuToggle) return;
-
-    navbar.classList.remove("open");
-
-    const icon =
-        menuToggle.querySelector("i");
-
-    if (icon) {
-
-        icon.classList.remove("fa-xmark");
-
-        icon.classList.add("fa-bars");
-
-    }
-
-    menuToggle.setAttribute(
-        "aria-label",
-        "Open menu"
-    );
-
-}
-
-
 if (menuToggle && navbar) {
 
-    menuToggle.addEventListener(
-        "click",
-        () => {
+    menuToggle.addEventListener("click", () => {
 
-            const isOpen =
-                navbar.classList.toggle("open");
+        navbar.classList.toggle("open");
 
-            const icon =
-                menuToggle.querySelector("i");
+        const icon =
+            menuToggle.querySelector("i");
 
-            if (icon) {
+        if (navbar.classList.contains("open")) {
 
-                icon.classList.toggle(
-                    "fa-bars",
-                    !isOpen
-                );
+            icon.classList.remove("fa-bars");
 
-                icon.classList.toggle(
-                    "fa-xmark",
-                    isOpen
-                );
-
-            }
+            icon.classList.add("fa-xmark");
 
             menuToggle.setAttribute(
                 "aria-label",
-                isOpen
-                    ? "Close menu"
-                    : "Open menu"
+                "Close menu"
+            );
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open menu"
             );
 
         }
-    );
+
+    });
 
 }
 
 
 navLinks.forEach((link) => {
 
-    link.addEventListener(
-        "click",
-        closeMobileMenu
-    );
+    link.addEventListener("click", () => {
+
+        if (!navbar || !menuToggle) return;
+
+        navbar.classList.remove("open");
+
+        const icon =
+            menuToggle.querySelector("i");
+
+        if (icon) {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open menu"
+        );
+
+    });
 
 });
 
@@ -160,6 +148,7 @@ function updateThemeIcon() {
             "data-theme"
         );
 
+
     if (currentTheme === "dark") {
 
         themeToggle.innerHTML =
@@ -190,48 +179,43 @@ updateThemeIcon();
 
 if (themeToggle) {
 
-    themeToggle.addEventListener(
-        "click",
-        () => {
+    themeToggle.addEventListener("click", () => {
 
-            const currentTheme =
-                document.documentElement.getAttribute(
-                    "data-theme"
-                );
+        const currentTheme =
+            document.documentElement.getAttribute(
+                "data-theme"
+            );
 
 
-            if (currentTheme === "dark") {
+        if (currentTheme === "dark") {
 
-                document.documentElement
-                    .removeAttribute(
-                        "data-theme"
-                    );
+            document.documentElement.removeAttribute(
+                "data-theme"
+            );
 
-                localStorage.setItem(
-                    "theme",
-                    "light"
-                );
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
 
-            } else {
+        } else {
 
-                document.documentElement
-                    .setAttribute(
-                        "data-theme",
-                        "dark"
-                    );
+            document.documentElement.setAttribute(
+                "data-theme",
+                "dark"
+            );
 
-                localStorage.setItem(
-                    "theme",
-                    "dark"
-                );
-
-            }
-
-
-            updateThemeIcon();
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
 
         }
-    );
+
+
+        updateThemeIcon();
+
+    });
 
 }
 
@@ -297,8 +281,7 @@ function typeEffect() {
 
     if (
         !isDeleting &&
-        characterIndex ===
-        currentWord.length
+        characterIndex === currentWord.length
     ) {
 
         speed = 1800;
@@ -332,11 +315,7 @@ function typeEffect() {
 }
 
 
-if (typingText) {
-
-    typeEffect();
-
-}
+typeEffect();
 
 
 /* ==========================================
@@ -367,10 +346,7 @@ function updateHeader() {
 
 window.addEventListener(
     "scroll",
-    updateHeader,
-    {
-        passive: true
-    }
+    updateHeader
 );
 
 
@@ -382,9 +358,7 @@ updateHeader();
 ========================================== */
 
 const sections =
-    document.querySelectorAll(
-        "main section[id]"
-    );
+    document.querySelectorAll("section");
 
 
 function updateActiveNavigation() {
@@ -392,71 +366,57 @@ function updateActiveNavigation() {
     let currentSection = "";
 
 
-    sections.forEach(
-        (section) => {
+    sections.forEach((section) => {
 
-            const sectionTop =
-                section.offsetTop - 200;
-
-
-            const sectionBottom =
-                sectionTop +
-                section.offsetHeight;
+        const sectionTop =
+            section.offsetTop - 180;
 
 
-            if (
-                window.scrollY >=
-                sectionTop &&
-                window.scrollY <
-                sectionBottom
-            ) {
+        const sectionHeight =
+            section.offsetHeight;
 
-                currentSection =
-                    section.id;
 
-            }
+        if (
+
+            window.scrollY >= sectionTop &&
+
+            window.scrollY <
+            sectionTop + sectionHeight
+
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
 
         }
-    );
+
+    });
 
 
-    navLinks.forEach(
-        (link) => {
+    navLinks.forEach((link) => {
 
-            link.classList.remove(
-                "active"
-            );
+        link.classList.remove("active");
 
 
-            const linkTarget =
-                link.getAttribute(
-                    "href"
-                );
+        if (
 
+            link.getAttribute("href") ===
+            `#${currentSection}`
 
-            if (
-                linkTarget ===
-                `#${currentSection}`
-            ) {
+        ) {
 
-                link.classList.add(
-                    "active"
-                );
-
-            }
+            link.classList.add("active");
 
         }
-    );
+
+    });
 
 }
 
 
 window.addEventListener(
     "scroll",
-    updateActiveNavigation,
-    {
-        passive: true
-    }
+    updateActiveNavigation
 );
 
 
@@ -468,9 +428,7 @@ updateActiveNavigation();
 ========================================== */
 
 const backToTop =
-    document.getElementById(
-        "backToTop"
-    );
+    document.getElementById("backToTop");
 
 
 function updateBackToTop() {
@@ -480,15 +438,11 @@ function updateBackToTop() {
 
     if (window.scrollY > 500) {
 
-        backToTop.classList.add(
-            "show"
-        );
+        backToTop.classList.add("show");
 
     } else {
 
-        backToTop.classList.remove(
-            "show"
-        );
+        backToTop.classList.remove("show");
 
     }
 
@@ -497,10 +451,7 @@ function updateBackToTop() {
 
 window.addEventListener(
     "scroll",
-    updateBackToTop,
-    {
-        passive: true
-    }
+    updateBackToTop
 );
 
 
@@ -528,31 +479,43 @@ if (backToTop) {
 
 
 /* ==========================================
-   CONTACT FORM
+   CONTACT FORM - FORMSPREE
 ========================================== */
 
 const contactForm =
-    document.getElementById(
-        "contactForm"
-    );
+    document.getElementById("contactForm");
 
 
 const formStatus =
-    document.getElementById(
-        "formStatus"
-    );
+    document.getElementById("formStatus");
 
 
 if (contactForm) {
 
     contactForm.addEventListener(
         "submit",
-        () => {
+        async function (event) {
+
+            /*
+            IMPORTANT:
+            Prevent normal page reload.
+            */
+
+            event.preventDefault();
+
 
             const submitButton =
                 contactForm.querySelector(
                     "button[type='submit']"
                 );
+
+
+            const buttonText =
+                submitButton.querySelector("span");
+
+
+            const buttonIcon =
+                submitButton.querySelector("i");
 
 
             if (formStatus) {
@@ -566,17 +529,111 @@ if (contactForm) {
             }
 
 
-            if (submitButton) {
-
-                submitButton.disabled =
-                    true;
+            submitButton.disabled = true;
 
 
-                submitButton.innerHTML =
-                    `
-                    Sending...
-                    <i class="fa-solid fa-spinner fa-spin"></i>
-                    `;
+            if (buttonText) {
+
+                buttonText.textContent =
+                    "Sending...";
+
+            }
+
+
+            if (buttonIcon) {
+
+                buttonIcon.className =
+                    "fa-solid fa-spinner fa-spin";
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        contactForm.action,
+                        {
+
+                            method: "POST",
+
+                            body:
+                                new FormData(
+                                    contactForm
+                                ),
+
+                            headers: {
+
+                                "Accept":
+                                    "application/json"
+
+                            }
+
+                        }
+                    );
+
+
+                if (response.ok) {
+
+                    if (formStatus) {
+
+                        formStatus.textContent =
+                            "Message sent successfully!";
+
+                        formStatus.className =
+                            "form-status success";
+
+                    }
+
+
+                    contactForm.reset();
+
+
+                } else {
+
+                    throw new Error(
+                        "Form submission failed"
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Form Error:",
+                    error
+                );
+
+
+                if (formStatus) {
+
+                    formStatus.textContent =
+                        "Unable to send message. Please try again.";
+
+                    formStatus.className =
+                        "form-status error";
+
+                }
+
+            }
+
+
+            submitButton.disabled = false;
+
+
+            if (buttonText) {
+
+                buttonText.textContent =
+                    "Send Message";
+
+            }
+
+
+            if (buttonIcon) {
+
+                buttonIcon.className =
+                    "fa-solid fa-paper-plane";
 
             }
 
@@ -592,33 +649,28 @@ if (contactForm) {
 
 document
     .querySelectorAll("img")
-    .forEach(
-        (image) => {
+    .forEach((image) => {
 
-            image.addEventListener(
-                "error",
-                () => {
+        image.addEventListener(
+            "error",
+            () => {
 
-                    image.style.display =
-                        "none";
+                image.style.display =
+                    "none";
 
 
-                    if (
-                        image.parentElement
-                    ) {
+                if (image.parentElement) {
 
-                        image.parentElement
-                            .classList.add(
-                                "image-fallback"
-                            );
-
-                    }
+                    image.parentElement.classList.add(
+                        "image-fallback"
+                    );
 
                 }
-            );
 
-        }
-    );
+            }
+        );
+
+    });
 
 
 /* ==========================================
@@ -629,74 +681,55 @@ document
     .querySelectorAll(
         'a[href^="#"]'
     )
-    .forEach(
-        (anchor) => {
+    .forEach((anchor) => {
 
-            anchor.addEventListener(
-                "click",
-                function (event) {
+        anchor.addEventListener(
+            "click",
+            function (event) {
 
-                    const targetId =
-                        this.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-
-                        return;
-
-                    }
+                const targetId =
+                    this.getAttribute(
+                        "href"
+                    );
 
 
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
+                if (
 
+                    targetId === "#" ||
 
-                    if (target) {
+                    targetId === ""
 
-                        event.preventDefault();
+                ) {
 
-
-                        target.scrollIntoView({
-
-                            behavior:
-                                "smooth",
-
-                            block:
-                                "start"
-
-                        });
-
-                    }
+                    return;
 
                 }
-            );
-
-        }
-    );
 
 
-/* ==========================================
-   RESIZE HANDLING
-========================================== */
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
 
-window.addEventListener(
-    "resize",
-    () => {
 
-        if (
-            window.innerWidth > 800
-        ) {
+                if (target) {
 
-            closeMobileMenu();
+                    event.preventDefault();
 
-        }
 
-    }
-);
+                    target.scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
+                    });
+
+                }
+
+            }
+        );
+
+    });
