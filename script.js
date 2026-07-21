@@ -509,11 +509,13 @@ const formStatus =
 
 if (contactForm) {
 
+
     contactForm.addEventListener(
 
         "submit",
 
         async (event) => {
+
 
             event.preventDefault();
 
@@ -540,6 +542,7 @@ if (contactForm) {
                 submitButton.disabled =
                     true;
 
+
                 submitButton.innerHTML =
 
                     'Sending... ' +
@@ -550,6 +553,7 @@ if (contactForm) {
 
 
             try {
+
 
                 const formData =
                     new FormData(contactForm);
@@ -578,57 +582,125 @@ if (contactForm) {
                     );
 
 
-                if (!response.ok) {
-
-                    throw new Error(
-                        "Message sending failed"
-                    );
-
-                }
+                if (response.ok) {
 
 
-                if (formStatus) {
+                    if (formStatus) {
 
-                    formStatus.textContent =
-                        "Message sent successfully!";
+                        formStatus.textContent =
+                            "Message sent successfully!";
 
-                    formStatus.className =
-                        "form-status success";
+                        formStatus.className =
+                            "form-status success";
 
-                }
-
-
-                contactForm.reset();
+                    }
 
 
-                if (submitButton) {
+                    contactForm.reset();
 
-                    submitButton.disabled =
-                        false;
 
-                    submitButton.innerHTML =
+                    if (submitButton) {
 
-                        'Send Message ' +
+                        submitButton.disabled =
+                            false;
 
-                        '<i class="fa-solid fa-paper-plane"></i>';
+
+                        submitButton.innerHTML =
+
+                            'Send Message ' +
+
+                            '<i class="fa-solid fa-paper-plane"></i>';
+
+                    }
+
+
+                } else {
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (formStatus) {
+
+
+                        if (
+
+                            data.errors &&
+
+                            data.errors.length > 0
+
+                        ) {
+
+
+                            formStatus.textContent =
+
+                                data.errors
+
+                                    .map(
+
+                                        error =>
+
+                                            error.message
+
+                                    )
+
+                                    .join(", ");
+
+
+                        } else {
+
+
+                            formStatus.textContent =
+
+                                "Unable to send message.";
+
+                        }
+
+
+                        formStatus.className =
+                            "form-status error";
+
+                    }
+
+
+                    if (submitButton) {
+
+                        submitButton.disabled =
+                            false;
+
+
+                        submitButton.innerHTML =
+
+                            'Send Message ' +
+
+                            '<i class="fa-solid fa-paper-plane"></i>';
+
+                    }
 
                 }
 
 
             } catch (error) {
 
+
                 console.error(
-                    "Contact form error:",
+
+                    "Formspree Error:",
+
                     error
+
                 );
 
 
                 if (formStatus) {
 
                     formStatus.textContent =
-                        "Unable to send message. Please try again.";
+
+                        "Network error. Please try again.";
 
                     formStatus.className =
+
                         "form-status error";
 
                 }
@@ -638,6 +710,7 @@ if (contactForm) {
 
                     submitButton.disabled =
                         false;
+
 
                     submitButton.innerHTML =
 
@@ -654,7 +727,6 @@ if (contactForm) {
     );
 
 }
-
 
 /* ==========================================
 IMAGE FALLBACK
